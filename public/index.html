@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENU PRINCIPAL</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <link rel="stylesheet" href="estilos.css">
+    
+    </head>
+<body>
+
+    <header>
+        <img src="https://placehold.co/128x128/312e81/ffffff?text=DEV" alt="Tu Futuro Sitio Favorito" class="logo-titulo">
+        <nav>
+            <ul>
+                <li><a href="index.html" class="bg-indigo-700">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="testimonios.html">Testimonios</a></li>
+                <li><a href="postventa.html">Atención Postservicio</a></li>
+                <li><a href="login.html" class="hover:bg-indigo-500 bg-indigo-800 px-3">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="text-3xl font-extrabold text-indigo-900 mb-4">¿Qué hago?</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">Te ayudo con la administración de archivos, instalación de software y optimización de sistemas, para que tu equipo rinda al máximo.</p>
+
+        <h3 class="text-2xl font-bold mt-12 mb-6 text-indigo-800">Mis servicios destacados:</h3>
+
+        <div class="services-list">
+            
+            <div class="service-item">
+                <img src="https://placehold.co/300x128/d1d5db/000000?text=Archivos" alt="Administración de Archivos" onerror="this.onerror=null; this.src='https://placehold.co/300x128/d1d5db/000000?text=Archivos'">
+                <h4>Administración de Archivos</h4>
+                <p>Organización y limpieza de documentos para liberar espacio y mejorar el flujo de trabajo.</p>
+            </div>
+
+            <div class="service-item">
+                <img src="https://placehold.co/300x128/9ca3af/000000?text=Software" alt="Instalación de Software" onerror="this.onerror=null; this.src='https://placehold.co/300x128/9ca3af/000000?text=Software'">
+                <h4>Instalación de Software</h4>
+                <p>Instalación y configuración profesional de cualquier aplicación, garantizando su compatibilidad.</p>
+            </div>
+
+            <div class="service-item">
+                <img src="https://placehold.co/300x128/6b7280/ffffff?text=Optimizar" alt="Optimización de Sistemas" onerror="this.onerror=null; this.src='https://placehold.co/300x128/6b7280/ffffff?text=Optimizar'">
+                <h4>Optimización de Sistemas</h4>
+                <p>Mejora de la velocidad de tu PC y eliminación de procesos innecesarios para un rendimiento óptimo.</p>
+            </div>
+            
+            <div class="service-item">
+                <img src="https://placehold.co/300x128/dc2626/ffffff?text=Malware" alt="Limpieza de Virus y Malware" onerror="this.onerror=null; this.src='https://placehold.co/300x128/dc2626/ffffff?text=Malware'">
+                <h4>Limpieza de Virus y Malware</h4>
+                <p>Eliminación de software malicioso, protección de datos y restauración completa del sistema operativo.</p>
+            </div>
+            
+            <div class="service-item">
+                <img src="https://placehold.co/300x128/1d4ed8/ffffff?text=Soporte" alt="Soporte Técnico Remoto" onerror="this.onerror=null; this.src='https://placehold.co/300x128/1d4ed8/ffffff?text=Soporte'">
+                <h4>Soporte Técnico Remoto</h4>
+                <p>Asistencia técnica inmediata y segura a distancia para solucionar problemas sin demoras.</p>
+            </div>
+
+        </div>
+
+        <a href="servicios.html" class="btn">Ver Servicios</a>
+    </main>
+
+<footer>
+    <p>&copy; <span id="year"></span> ROCKA DEVELOPMENT. Todos los derechos reservados.</p>
+</footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+.htaccess# Habilitar mod_rewrite
+RewriteEngine On
+
+# Redirigir HTTP a HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Si el archivo existe, servirlo directamente
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redirigir HTML estáticos a PHP si es necesario
+RewriteRule ^login$ login.html [L]
+RewriteRule ^servicios$ servicios.html [L]
+
+# Proteger archivos sensibles
+<FilesMatch "\.(sql|ini|log|sh)$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
+
+<FilesMatch "^(conexion|config)\.php$">
+  # Permitir acceso solo desde localhost en desarrollo
+  Order Deny,Allow
+  Deny from all
+  Allow from 127.0.0.1
+</FilesMatch>
+
+# Configuración de cabeceras para seguridad
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "DENY"

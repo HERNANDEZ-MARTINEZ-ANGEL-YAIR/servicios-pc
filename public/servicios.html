@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <link rel="stylesheet" href="estilos.css">
+    
+</head>
+<body>
+
+    <header>
+        <h1 class="text-center">Servicios</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html" class="bg-indigo-700">Servicios</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="testimonios.html">Testimonios</a></li>
+                <li><a href="postventa.html">Atención Postservicio</a></li>
+                <!-- ENLACES DE AUTENTICACIÓN AÑADIDOS -->
+                <li><a href="login.html" class="hover:bg-indigo-500 bg-indigo-800 px-3">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="text-3xl font-extrabold text-indigo-900 mb-4">Detalle de Servicios</h2>
+
+        <!-- Tabla de servicios -->
+        <div class="overflow-x-auto">
+            <table class="tabla-servicios">
+                <thead>
+                    <tr>
+                        <th>Servicio</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Tiempo Estimado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-semibold">Administración de Archivos</td>
+                        <td>Organizo y gestiono tus archivos para mejorar tu flujo de trabajo.</td>
+                        <td>tarifa inicial $80 / variable.</td>
+                        <td>Variable / 1 hora max.</td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold">Instalación de Software</td>
+                        <td>Instalo y configuro el software necesario para tu dispositivo.</td>
+                        <td>$50 / variable.</td>
+                        <td>30m mínimo / depende la cantidad</td>
+                    </tr>
+                    <tr>
+                        <td class="font-semibold">Optimización de Sistemas</td>
+                        <td>Mejoro el rendimiento de tus sistemas operativos y software.</td>
+                        <td>$100 / depende del usuario</td>
+                        <td>2 - 4 horas /variable.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <a href="contacto.html" class="btn">Contáctame</a>
+    </main>
+
+<footer>
+    <p>&copy; <span id="year"></span> ROCKA DEVELOPMENT. Todos los derechos reservados.</p>
+</footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+
+</body>
+</html>

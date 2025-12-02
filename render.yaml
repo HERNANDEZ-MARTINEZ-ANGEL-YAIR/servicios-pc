@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: servicios-pc
+    env: php
+    region: ohio
+    buildCommand: ""
+    startCommand: php -S 0.0.0.0:$PORT -t public
+    healthCheckPath: /index.php
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: ENVIRONMENT
+        value: production
+
+databases:
+  - name: servicios-pc-db
+    databaseName: servicios_pc
+    user: servicios_user
+    plan: free

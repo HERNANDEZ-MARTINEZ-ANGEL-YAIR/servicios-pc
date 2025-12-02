@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="estilos.css">
+    
+    <style>
+        /* Definición de variables base asumidas (deberían estar en estilos.css) */
+        :root {
+            --color-primary-dark: #530000; 
+            --color-text-dark: #333;
+        }
+
+        /* ---------------------------------------------------- */
+        /* ESTILOS DE BOTONES DE CONTACTO (Agrandados y Prominentes) */
+        /* ---------------------------------------------------- */
+        .whatsapp-btn, .email-btn {
+            display: block; 
+            width: 100%; 
+            padding: 1rem 1.5rem; /* Padding grande */
+            font-size: 1.15rem; /* Fuente visible */
+            font-weight: bold;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        /* Estilo Específico para WhatsApp (Verde) */
+        .whatsapp-btn {
+            background-color: #25D366; 
+            color: white;
+        }
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: scale(1.01);
+        }
+
+        /* Estilo Específico para Email (Usando tu color principal oscuro) */
+        .email-btn {
+            background-color: var(--color-primary-dark); 
+            color: white;
+        }
+        .email-btn:hover {
+            background-color: #7b0000;
+            transform: scale(1.01);
+        }
+
+        /* ---------------------------------------------------- */
+        /* AJUSTES PARA RESTAURAR LA ESTÉTICA CONSISTENTE */
+        /* ---------------------------------------------------- */
+        
+        /* Eliminamos todos los estilos redundantes de header, nav, footer, etc., */
+        /* ya que deben ser manejados por 'estilos.css' y/o clases de Tailwind. */
+
+        /* Ajustamos el main para que se vea como tus otros contenedores de página */
+        main {
+            padding: 2rem 1rem;
+            max-width: 1000px; /* Ancho para coincidir con otros contenedores */
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="text-center" style="color: white; font-size: 1.5rem; font-weight: bold;">Contacto</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html" class="active-link">Contacto</a></li> 
+                <li><a href="testimonios.html">Testimonios</a></li>
+                <li><a href="postventa.html">Atención Postservicio</a></li>
+                <li><a href="login.html" class="hover:bg-indigo-700 bg-indigo-800 text-white px-3">Iniciar Sesión</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="text-3xl font-semibold mb-8" style="color: var(--color-text-dark);">¡Contáctame!</h2>
+
+        <div class="max-w-xl mx-auto space-y-6"> 
+            <button class="whatsapp-btn" onclick="window.location.href='https://wa.me/5664539545'">
+                📲 Contacto vía WHATSAPP <
+            </button>
+            <button class="email-btn" onclick="window.location.href='mailto:the4hm87@gmail.com'">
+                ✉️ Enviar correo electrónico GMAIL <
+            </button>
+        </div>
+
+        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mt-8 max-w-xl mx-auto rounded-lg hidden" id="successMessage">
+            <p>¡Gracias por contactarme! Tu mensaje ha sido enviado.</p>
+        </div>
+    </main>
+
+<footer>
+    <p>&copy; <span id="year"></span> ROCKA DEVELOPMENT. Todos los derechos reservados.</p>
+</footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

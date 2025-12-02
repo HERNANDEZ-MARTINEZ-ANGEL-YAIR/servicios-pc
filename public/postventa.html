@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atención Postventa</title>
+    <link rel="stylesheet" href="estilos.css">
+    
+</head>
+<body>
+
+    <header>
+        <h1 class="text-center">Atención Postventa</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="testimonios.html">Testimonios</a></li>
+                <li><a href="postventa.html" class="bg-indigo-700">Atención Postservicio</a></li>
+                <!-- ENLACES DE AUTENTICACIÓN AÑADIDOS -->
+                <li><a href="login.html" class="hover:bg-indigo-500 bg-indigo-800 px-3">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="text-3xl font-extrabold text-indigo-900 mb-4">Soporte Después del Servicio</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Aquí puedes solicitar ayuda o resolver dudas sobre los servicios que ya has recibido.</p>
+
+        <div class="servicio">
+            <h3>Solicitud de Soporte</h3>
+            <p>Envíanos tus preguntas o reportes de problemas, y recibirás asistencia personalizada.</p>
+            <a href="mailto:the4hm87@gmail.com?subject=NECESITO%20SERVICIO%20POST%20VENTA&body=Hola,%20necesito%20asistencia%20postventa." class="btn">Solicitar Soporte</a>
+        </div>
+
+    </main>
+
+<footer>
+    <p>&copy; <span id="year"></span> ROCKA DEVELOPMENT. Todos los derechos reservados.</p>
+</footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+
+</body>
+</html>

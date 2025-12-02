@@ -1,0 +1,8 @@
+{
+  "name": "servicios-pc",
+  "description": "Sistema de gestión de servicios informáticos",
+  "require": {
+    "php": "^8.0",
+    "ext-mysqli": "*"
+  }
+}

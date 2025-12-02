@@ -1,0 +1,522 @@
+/* =======================================================
+   ESTILOS GENERALES PARA TODAS LAS PÁGINAS DE MI PÁGINA WEB
+   ======================================================= */
+
+/* Mejora: Aplicar box-sizing a todos los elementos para facilitar el layout */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    /* Definición de variables de color para fácil mantenimiento */
+    --color-primary-dark: #300000; /* Marrón oscuro / fondo principal */
+    --color-accent-blue: #007bff; /* Azul de acento */
+    --color-text-light: #ffffff;
+    --color-text-dark: #333333;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif; /* Usar Inter si está disponible, sino Arial */
+    background-color: var(--color-primary-dark);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* =======================================================
+   HEADER Y NAVEGACIÓN
+   ======================================================= */
+header {
+    background-color: var(--color-text-dark);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 10px 0; /* Padding vertical, 0 horizontal */
+}
+
+/* Estilo de la imagen del banner en el header */
+.logo-titulo {
+    width: 100%; 
+    max-height: 300px; 
+    object-fit: cover; 
+    margin: 0 auto; 
+    display: block;
+    border-radius: var(--border-radius); /* Bordes redondeados para la imagen */
+}
+
+nav {
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    display: flex; /* Usar flexbox para centrar y distribuir mejor */
+    justify-content: center;
+    gap: 20px; /* Espacio entre los elementos de la lista */
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    /* margin-right: 15px; -> Reemplazado por gap en 'ul' */
+}
+
+nav ul li a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 10px; /* Agregar padding para hacer la zona de click más grande */
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+nav ul li a:hover {
+    color: var(--color-primary-dark);
+    background-color: #ddd; /* Fondo al pasar el mouse */
+}
+
+/* =======================================================
+   MAIN GENERAL
+   ======================================================= */
+main {
+    padding: 20px;
+    background-color: var(--color-text-light);
+    margin: 20px auto; /* Usar 'auto' para centrar el bloque en el escritorio */
+    text-align: left; /* Generalmente el texto se alinea a la izquierda */
+    max-width: 1200px; /* Limitar el ancho máximo para mejor legibilidad */
+    min-height: 60vh; /* Asegurar que el main tenga un tamaño mínimo */
+    border-radius: var(--border-radius); /* Bordes redondeados */
+    box-shadow: 0 10px 20px var(--color-shadow); /* Sombra suave para destacar */
+    box-sizing: border-box;
+    margin-bottom: 70px; /* Espacio para el footer estático */
+}
+
+h2 {
+    text-align: center;
+    color: var(--color-text-dark);
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-accent-blue);
+    display: inline-block; /* Para que el borde_bottom solo abarque el texto */
+}
+
+/* =======================================================
+   FOOTER
+   ======================================================= */
+footer {
+    background-color: var(--color-text-dark);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 15px 10px;
+    /* Eliminamos 'position: fixed;' para evitar superposición constante */
+    /* Lo mantenemos estático al final del contenido. */
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* =======================================================
+   ESTILOS GENERALES PARA BOTONES Y CTA
+   ======================================================= */
+.btn {
+    padding: 12px 30px;
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #555;
+    transform: translateY(-2px); /* Pequeño efecto de levantamiento */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* =======================================================
+   ESTILOS ESPECÍFICOS DE CONTACTO.HTML
+   ======================================================= */
+.contact-container {
+    max-width: 500px; /* Limitar el ancho para que los botones 100% no sean enormes */
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px var(--color-shadow);
+}
+
+.contact-container button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 15px; /* Aumentar padding para accesibilidad táctil */
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+    color: white;
+}
+
+.email-btn {
+    background-color: var(--color-accent-blue);
+    color: white;
+}
+
+.contact-container button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.success-message {
+    display: none;
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    text-align: center;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* =======================================================
+   ESTILOS DE INDEX.HTML (Servicios en la portada)
+   ======================================================= */
+.services-list {
+    display: flex;
+    justify-content: center; /* Centrar items */
+    gap: 20px; /* Espacio entre los items */
+    margin-top: 20px;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.service-item {
+    width: calc(33.33% - 20px); /* 3 columnas con espacio */
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden; 
+    border-radius: var(--border-radius);
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 10px var(--color-shadow);
+    transition: box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.service-item img {
+    width: 100%;
+    height: 200px; /* Altura fija para uniformidad */
+    object-fit: cover; /* Asegurar que la imagen cubra el área sin distorsionarse */
+    border-radius: var(--border-radius) var(--border-radius) 0 0; /* Solo arriba */
+    transition: transform 0.4s ease;
+}
+
+/* ANIMACIONES Y EFECTOS EN LAS IMÁGENES DE LA SECCIÓN DE SERVICIOS */
+.service-item:hover img {
+    transform: scale(1.08); /* Aumentar un poco más el zoom */
+    opacity: 1; 
+    /* box-shadow: ya se maneja en el .service-item:hover */
+}
+
+/* EFECTO DE TRANSICIÓN EN EL TEXTO */
+.service-item h4 {
+    padding: 15px 10px;
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.service-item:hover h4 {
+    color: var(--color-text-light); 
+    background-color: var(--color-accent-blue);
+}
+
+/* =======================================================
+   ESTILOS DE NOSOTROS.HTML
+   ======================================================= */
+.banner {
+    width: 100%;
+    height: 300px; /* Aumentar ligeramente la altura del banner */
+    background-image: url('imgs/banner.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll; /* Cambiado a scroll, 'fixed' puede causar problemas de rendimiento */
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+}
+
+.equipo {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.miembro {
+    text-align: center;
+    width: 200px;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px var(--color-shadow);
+    background-color: #fafafa;
+    transition: transform 0.3s ease;
+}
+
+.miembro:hover {
+    transform: translateY(-5px);
+}
+
+.miembro img {
+    width: 120px; /* Reducir ligeramente para mejor presentación */
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--color-accent-blue);
+    margin-bottom: 10px;
+}
+
+/* =======================================================
+   ESTILOS DE SERVICIOS.HTML (Detalle de servicio)
+   ======================================================= */
+.servicio {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-left: 5px solid var(--color-accent-blue);
+    background-color: #fcfcfc;
+    border-radius: var(--border-radius);
+}
+
+.servicio h3 {
+    color: var(--color-primary-dark);
+    margin-top: 0;
+}
+
+.servicio p {
+    color: #555;
+}
+
+/* ESTILOS PARA CENTRAR LA TABLA DE SERVICIOS */
+.tabla-servicios {
+    width: 100%; /* Usar 100% dentro del main */
+    max-width: 1000px; 
+    margin: 20px auto; 
+    border-collapse: collapse;
+    box-shadow: 0 4px 15px var(--color-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Asegurar que los bordes redondeados se apliquen a la tabla */
+}
+
+.tabla-servicios th, .tabla-servicios td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.tabla-servicios th {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    font-weight: 700;
+}
+
+.tabla-servicios tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tabla-servicios tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+/* =======================================================
+   ESTILOS DE TESTIMONIOS.HTML
+   ======================================================= */
+.testimonio {
+    margin-bottom: 25px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    background-color: #fefefe;
+    box-shadow: 0 2px 5px var(--color-shadow);
+}
+
+.testimonio h3 {
+    font-size: 1.2rem;
+    color: var(--color-accent-blue);
+    margin-top: 0;
+}
+
+.testimonio p {
+    color: #666;
+    font-style: italic;
+}
+
+/* Mantener el fondo oscuro para el body de testimonios */
+body.testimonios {
+    background-color: var(--color-primary-dark); 
+}
+
+/* =======================================================
+   ADAPTACIÓN A DISTINTOS DISPOSITIVOS (Media Queries)
+   ======================================================= */
+
+/* Desktop Pequeño y Tablet Grande */
+@media (max-width: 1200px) {
+    .service-item {
+        width: calc(50% - 20px); /* 2 columnas */
+    }
+
+    .equipo {
+        gap: 20px;
+    }
+
+    .equipo .miembro {
+        width: calc(33% - 20px); /* 3 miembros por fila */
+    }
+}
+
+/* Tablet y Móvil Horizontal */
+@media (max-width: 768px) {
+    /* Main */
+    main {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    /* Navegación - Cambiar a stack vertical */
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 8px;
+    }
+
+    /* Servicios */
+    .service-item {
+        width: 90%; /* Casi ancho completo */
+        margin: 10px auto;
+    }
+    
+    /* Equipo */
+    .equipo .miembro {
+        width: 45%; 
+    }
+
+    /* Footer */
+    footer {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    /* Botones de Contacto */
+    .contact-container {
+        padding: 15px;
+    }
+    
+    .contact-container button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
+
+/* Móvil Pequeño */
+@media (max-width: 480px) {
+    /* Títulos */
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Equipo */
+    .equipo .miembro {
+        width: 80%; /* Un miembro por fila */
+        margin: 10px auto;
+    }
+
+    /* Footer */
+    footer {
+        padding: 10px 5px;
+        font-size: 0.75rem;
+    }
+
+    /* Botones generales */
+    .btn {
+        padding: 10px 20px;
+    }
+}
+
+/* =======================================================
+    ESTILOS DE INDEX.HTML (Servicios en la portada)
+    ======================================================= */
+/* Contenedor principal de los servicios (grid) */
+.services-grid {
+    display: grid;
+    /* Por defecto, 3 columnas. Esto coincide con lg:grid-cols-3 en Tailwind */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Espacio entre las tarjetas */
+    margin-top: 30px;
+    padding: 0;
+}
+
+/* Estilo base de la Tarjeta (service-item) */
+.service-item {
+    background-color: #ffffff; /* bg-white */
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    border: 1px solid #e5e7eb; /* border-gray-200 */
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+/* Efecto Hover */
+.service-item:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-xl */
+    transform: translateY(-5px); /* Pequeño levantamiento */
+    border-color: #4f46e5; /* Índigo 600 */
+}
+
+/* Encabezado y títulos dentro de la tarjeta */
+.service-item .title-container {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Espacio entre icono y título */
+    margin-bottom: 10px;
+}
+
+.service-item .icon {
+    width: 32px; /* w-8 */
+    height: 32px; /* h-8 */
+    color: #4f46e5; /* text-indigo-600 */
+}
+
+.service-item h4 {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 700; /* font-bold */
+    color: var(--color-text-dark);
+    margin: 0;
+}
+
+/* Descripción */
+.service-item p {
+    font-size: 0.875rem; /* text-sm */
+    color: #6b7280; /* text-gray-600 */
+    line-height: 1.5;
+}
