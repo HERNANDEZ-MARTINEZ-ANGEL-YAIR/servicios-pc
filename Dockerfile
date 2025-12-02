@@ -14,4 +14,4 @@ COPY . /app/
 EXPOSE 8080
 
 # Comando para iniciar
-CMD ["php", "-S", "0.0.0.0:8080", "-t", "."]
+CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]
