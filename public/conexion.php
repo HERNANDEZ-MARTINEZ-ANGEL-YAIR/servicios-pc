@@ -1,54 +1,72 @@
 <?php
 /**
  * Archivo de Conexión a la Base de Datos para RENDER
- * Versión adaptada para producción en la nube
+ * Versión PostgreSQL (GRATIS en Render)
  */
 
 // ==============================================
-// CONFIGURACIÓN PARA RENDER (MySQL)
+// CONFIGURACIÓN PARA RENDER (PostgreSQL con PDO)
 // ==============================================
 
-// OPCIÓN 1: Usar variables de entorno de Render (RECOMENDADO)
+// OPCIÓN 1: Variables de entorno de Render
 $host = getenv('DB_HOST') ?: 'localhost';
-$user = getenv('DB_USER') ?: 'root';
-$password = getenv('DB_PASSWORD') ?: '';
+$port = getenv('DB_PORT') ?: '5432';
 $database = getenv('DB_NAME') ?: 'servicios_pc';
+$user = getenv('DB_USER') ?: 'postgres';
+$password = getenv('DB_PASSWORD') ?: '';
 
-// OPCIÓN 2: Configuración manual (para desarrollo local)
-// Descomenta estas líneas SOLO para desarrollo local:
+// OPCIÓN 2: Configuración local (desarrollo)
+// Descomenta SOLO para desarrollo local con XAMPP/MySQL:
 /*
 $host = "localhost";
 $user = "root";
 $password = "";
 $database = "servicios_pc";
+$port = "3306";
 */
 
 // ==============================================
 // ESTABLECER LA CONEXIÓN
 // ==============================================
 
-$db = new mysqli($host, $user, $password, $database);
+try {
+    // Para PostgreSQL en Render (usando PDO)
+    if (getenv('DB_HOST') && strpos(getenv('DB_HOST'), 'postgres') !== false) {
+        // Conexión PostgreSQL con PDO
+        $dsn = "pgsql:host=$host;port=$port;dbname=$database";
+        $db = new PDO($dsn, $user, $password, [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]);
+        
+        // Crear también objeto mysqli para compatibilidad (solo para estructura)
+        $mysqli = null;
+        
+    } else {
+        // Para MySQL local (tu configuración actual)
+        $db = new mysqli($host, $user, $password, $database, $port ?: 3306);
+        
+        if ($db->connect_error) {
+            throw new Exception("MySQL Error: " . $db->connect_error);
+        }
+        $db->set_charset("utf8mb4");
+    }
 
-// Manejo de errores
-if ($db->connect_error) {
-    // En producción, no mostrar detalles específicos
+    // Variable de compatibilidad
+    $conn = $db;
+    
+    // Mensaje de depuración (solo en desarrollo)
+    if (getenv('ENVIRONMENT') !== 'production') {
+        // echo "✅ Conexión establecida";
+    }
+
+} catch (Exception $e) {
+    // Manejo de errores
     if (getenv('ENVIRONMENT') === 'production') {
-        error_log("Error de conexión a BD: [" . $db->connect_errno . "] " . $db->connect_error);
+        error_log("Error BD: " . $e->getMessage());
         die("Error de conexión con el servidor. Por favor, intente más tarde.");
     } else {
-        die("Error de conexión: [" . $db->connect_errno . "] " . $db->connect_error);
+        die("Error de conexión: " . $e->getMessage());
     }
 }
-
-// Configurar charset
-$db->set_charset("utf8mb4");  // Mejor que utf8 para compatibilidad completa
-
-// Variable de compatibilidad
-$conn = $db;
-
-// Mensaje de depuración (solo en desarrollo)
-if (getenv('ENVIRONMENT') !== 'production') {
-    // echo "✅ Conexión establecida a: " . $database;
-}
-
 ?>
